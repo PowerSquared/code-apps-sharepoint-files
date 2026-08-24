@@ -10,11 +10,28 @@ for this. That is what this package is.
 
 Framework-agnostic: plain TypeScript, no UI dependencies.
 
-## Requirements
+## Before you start
 
-**`@microsoft/power-apps` >= 1.3.0.** This is a hard floor, not a preference. Earlier versions have
-no `format: 'binary'` handling in the connector executor, so an upload body is `JSON.stringify`d and
-the resulting file is corrupt. Verified absent in 1.0.4. It is declared as a peer dependency.
+This package adds operations to a data source that **already exists**. It does not create a
+connection and it does not register a data source. Three things must be in place first.
+
+**1. A SharePoint connection in the environment.** Created in Power Apps, once per environment. The
+package never authenticates on its own — every call goes out through this connection.
+
+**2. The library registered as a data source**, so the CLI generates its schema and the app holds a
+connection reference for it:
+
+```bash
+pa app add data-source --connector shared_sharepointonline   --connection-id <connection-id> --dataset <site-url> --table <library-id>
+```
+
+`pa connection list` finds the connection id; `pa connection list-tables` finds the library id. If
+the `dataSourceName` you pass does not match a registered data source,
+`createSharePointFileService` throws immediately and lists the names it can see.
+
+**3. `@microsoft/power-apps` >= 1.3.0.** A hard floor, not a preference: earlier versions have no
+`format: 'binary'` handling in the connector executor, so an upload body is `JSON.stringify`d and the
+resulting file is corrupt. Verified absent in 1.0.4. Declared as a peer dependency.
 
 ## Install
 
