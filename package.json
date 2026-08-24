@@ -1,0 +1,35 @@
+{
+  "name": "code-apps-sharepoint-files",
+  "version": "1.0.0",
+  "description": "SharePoint file operations (upload, replace, delete, download) for Power Apps code apps, which the generated data source services do not cover.",
+  "keywords": ["power-apps", "code-apps", "sharepoint", "power-platform", "dataverse"],
+  "license": "MIT",
+  "author": "Power Squared",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PowerSquared/code-apps-sharepoint-files.git"
+  },
+  "homepage": "https://github.com/PowerSquared/code-apps-sharepoint-files#readme",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "@microsoft/power-apps": ">=1.3.0"
+  },
+  "devDependencies": {
+    "@microsoft/power-apps": "^1.3.0",
+    "typescript": "~5.9.3"
+  }
+}
