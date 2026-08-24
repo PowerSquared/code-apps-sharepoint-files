@@ -19,10 +19,11 @@ the resulting file is corrupt. Verified absent in 1.0.4. It is declared as a pee
 ## Install
 
 ```bash
-npm i github:PowerSquared/code-apps-sharepoint-files#v1.0.0
+npm i github:PowerSquared/code-apps-sharepoint-files#v1.0.1
 ```
 
-Pin the tag. The package builds itself on install via `prepare`.
+Pin the tag. Build output is committed, so the install works even with `--ignore-scripts` or an
+npm install-script allowlist.
 
 ## Usage
 

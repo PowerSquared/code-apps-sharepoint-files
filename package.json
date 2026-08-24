@@ -1,6 +1,6 @@
 {
   "name": "code-apps-sharepoint-files",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "SharePoint file operations (upload, replace, delete, download) for Power Apps code apps, which the generated data source services do not cover.",
   "keywords": ["power-apps", "code-apps", "sharepoint", "power-platform", "dataverse"],
   "license": "MIT",
